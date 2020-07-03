@@ -1,0 +1,26 @@
+﻿<Window x:Class="GBxHub.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GBxHub"
+        mc:Ignorable="d"
+        Title="insideGadgets GBxHub" Height="390.5" Width="599" Background="#FF6E6E6E" Foreground="White" ResizeMode="NoResize">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush/>
+        </Grid.Background>
+        <Rectangle x:Name="bgRectangle" HorizontalAlignment="Left" Height="380" Stroke="Black" VerticalAlignment="Top" Width="609" Opacity="0.4" Margin="-10,-10,-8,-11">
+            <Rectangle.Effect>
+                <BlurEffect Radius="4"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Label Content="GBxHub" HorizontalAlignment="Left" Margin="48,9,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" FontFamily="Calibri"/>
+        <Label x:Name="versionLabel" Content="Label" HorizontalAlignment="Left" Margin="135,20,0,0" VerticalAlignment="Top" Foreground="#FFE0E0E0"/>
+        <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden" Content="" HorizontalAlignment="Left" Height="267" Margin="10,49,0,0" VerticalAlignment="Top" Width="571"/>
+        <Image Source="/gbxui;component/Resources/igcartsmall.png" HorizontalAlignment="Left" Height="39" Margin="10,10,0,0" VerticalAlignment="Top" Width="39"/>
+        <Label Content="2020 LovelyA72  This is not an insideGadgets official software" HorizontalAlignment="Left" Margin="10,316,0,0" VerticalAlignment="Top" Foreground="#FFE0E0E0"/>
+
+
+    </Grid>
+</Window>

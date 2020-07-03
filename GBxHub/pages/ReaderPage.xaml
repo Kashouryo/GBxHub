@@ -1,0 +1,33 @@
+﻿<Page x:Class="GBxHub.ReaderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GBxHub"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ReaderPage" Width="571" Height="261">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Fill="#FF555555" HorizontalAlignment="Left" Height="261" Stroke="Black" VerticalAlignment="Top" Width="571"/>
+        <Label Content="Mode: " HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <RadioButton Content="GB/GBC" HorizontalAlignment="Left" Margin="71,38,0,0" VerticalAlignment="Top" Foreground="#FFDA5A5A"/>
+        <RadioButton Content="GBA" HorizontalAlignment="Left" Margin="143,38,0,0" VerticalAlignment="Top" Foreground="#FF368AEE"/>
+        <Label x:Name="frimwareLabel" Content="Not connected" HorizontalAlignment="Left" Margin="286,32,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Button x:Name="connectButton" Content="Connect" HorizontalAlignment="Left" Margin="408,36,0,0" VerticalAlignment="Top" Width="76"/>
+        <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" Height="28" Margin="10,229,0,0" VerticalAlignment="Top" Width="93" Click="Button_Click"/>
+        <Rectangle x:Name="statusRect" HorizontalAlignment="Left" Height="17" Margin="258,36,0,0" VerticalAlignment="Top" Width="28" Fill="#FFA40000">
+        </Rectangle>
+        <Label Content="Cartridge Info" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <TextBox AcceptsReturn="True" VerticalScrollBarVisibility="Visible" HorizontalAlignment="Left" Height="137" Margin="10,87,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="372"/>
+        <Button Content="Read Cart Info" HorizontalAlignment="Left" Margin="399,87,0,0" VerticalAlignment="Top" Width="97" RenderTransformOrigin="0.907,0.684" Height="28"/>
+        <Button Content="Read ROM" HorizontalAlignment="Left" Margin="399,120,0,0" VerticalAlignment="Top" Width="97" RenderTransformOrigin="0.907,0.684" Height="28"/>
+        <Button Content="Backup Save" HorizontalAlignment="Left" Margin="399,153,0,0" VerticalAlignment="Top" Width="97" RenderTransformOrigin="0.907,0.684" Height="28"/>
+        <Button Content="Restore Save" HorizontalAlignment="Left" Margin="399,186,0,0" VerticalAlignment="Top" Width="97" RenderTransformOrigin="0.907,0.684" Height="28"/>
+        <Button x:Name="stopButton" Content="Stop" HorizontalAlignment="Left" Height="28" Margin="289,229,0,0" VerticalAlignment="Top" Width="93" Click="Button_Click"/>
+
+    </Grid>
+</Page>
