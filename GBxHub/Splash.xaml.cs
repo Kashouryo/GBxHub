@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,16 @@ namespace GBxHub
         public Splash()
         {
             InitializeComponent();
+            if (File.Exists(".\\assets\\gbxlogo.png"))
+            {
+                var brush = new ImageBrush();
+                brush.ImageSource = new BitmapImage(new Uri(".\\assets\\gbxlogo.png", UriKind.Relative));
+                gbxImageLogo.Fill = brush;
+            }
+            else
+            {
+                logoLabel.Visibility = Visibility.Visible;
+            }
             dispatcherTimer.Tick += dispatcherTimer_Tick;
             dispatcherTimer.Interval = TimeSpan.FromMilliseconds(100);
             dispatcherTimer.Start();

@@ -17,9 +17,10 @@
         </Grid.Background>
         <Image Source="file:///C:/GitHub/GBxHub/gbxui/Resources/igcart.png" HorizontalAlignment="Left" Height="105" Margin="10,10,0,0" VerticalAlignment="Top" Width="105"/>
         <TextBlock HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" Text="insideGadgets" VerticalAlignment="Top" Foreground="White"/>
-        <TextBlock HorizontalAlignment="Left" Margin="115,34,0,0" TextWrapping="Wrap" Text="GBxHub" VerticalAlignment="Top" Foreground="White" FontSize="24"/>
-        <TextBlock HorizontalAlignment="Left" Margin="214,46,0,0" TextWrapping="Wrap" Text="for GBxCart by insideGadgets" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock x:Name="logoLabel" HorizontalAlignment="Left" Margin="115,34,0,0" TextWrapping="Wrap" Text="GBxHub" VerticalAlignment="Top" Foreground="White" FontSize="24" Visibility="Hidden"/>
+        <TextBlock HorizontalAlignment="Left" Margin="238,46,0,0" TextWrapping="Wrap" Text="for GBxCart by insideGadgets" VerticalAlignment="Top" Foreground="White"/>
         <TextBlock x:Name="loadingMessage" HorizontalAlignment="Left" Margin="379,104,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="Black" FontSize="10"/>
+        <Rectangle x:Name="gbxImageLogo" HorizontalAlignment="Left" Height="26" Margin="115,35,0,0" VerticalAlignment="Top" Width="118"/>
 
     </Grid>
 </Window>

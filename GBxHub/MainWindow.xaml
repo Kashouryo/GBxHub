@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GBxHub"
         mc:Ignorable="d"
-        Title="insideGadgets GBxHub" Height="390.5" Width="599" Background="#FF6E6E6E" Foreground="White" ResizeMode="NoResize">
+        Title="insideGadgets GBxHub" Height="390.5" Width="599" Background="#FF5D5D5D" Foreground="White" ResizeMode="NoResize">
     <Grid>
         <Grid.Background>
             <ImageBrush/>
@@ -15,11 +15,13 @@
                 <BlurEffect Radius="4"/>
             </Rectangle.Effect>
         </Rectangle>
-        <Label Content="GBxHub" HorizontalAlignment="Left" Margin="48,9,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" FontFamily="Calibri"/>
-        <Label x:Name="versionLabel" Content="Label" HorizontalAlignment="Left" Margin="135,20,0,0" VerticalAlignment="Top" Foreground="#FFE0E0E0"/>
-        <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden" Content="" HorizontalAlignment="Left" Height="267" Margin="10,49,0,0" VerticalAlignment="Top" Width="571"/>
-        <Image Source="/gbxui;component/Resources/igcartsmall.png" HorizontalAlignment="Left" Height="39" Margin="10,10,0,0" VerticalAlignment="Top" Width="39"/>
+        <Label x:Name="logoLabel" Content="GBxHub" HorizontalAlignment="Left" Margin="49,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="29" FontFamily="Calibri" Height="41" Visibility="Hidden"/>
+        <Label x:Name="versionLabel" Content="Label" HorizontalAlignment="Left" Margin="149,26,0,0" VerticalAlignment="Top" Foreground="#FFE0E0E0" Height="23"/>
+        <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden" Content="" HorizontalAlignment="Left" Height="267" Margin="10,49,0,0" VerticalAlignment="Top" Width="571" Focusable="False" IsTabStop="False"/>
+        <Image x:Name="logoImage" Source="/gbxui;component/Resources/igcartsmall.png" HorizontalAlignment="Left" Height="39" Margin="10,10,0,0" VerticalAlignment="Top" Width="39"/>
+        <Rectangle x:Name="gbxImageLogo" HorizontalAlignment="Left" Height="21" Margin="54,24,0,0" VerticalAlignment="Top" Width="95"/>
         <Label Content="2020 LovelyA72  This is not an insideGadgets official software" HorizontalAlignment="Left" Margin="10,316,0,0" VerticalAlignment="Top" Foreground="#FFE0E0E0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="54,10,0,0" TextWrapping="Wrap" Text="insideGadgets" VerticalAlignment="Top" Foreground="White" FontSize="11"/>
 
 
     </Grid>

@@ -82,5 +82,8 @@
   <ItemGroup>
     <None Include="Resources\pending.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\gbxlogo-ctl.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

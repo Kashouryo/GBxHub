@@ -30,6 +30,15 @@ namespace GBxHub
                 brush.ImageSource = new BitmapImage(new Uri(".\\assets\\background.png", UriKind.Relative));
                 bgRectangle.Fill = brush;
             }
+            if (File.Exists(".\\assets\\gbxlogo.png"))
+            {
+                var brush = new ImageBrush();
+                brush.ImageSource = new BitmapImage(new Uri(".\\assets\\gbxlogo.png", UriKind.Relative));
+                gbxImageLogo.Fill = brush;
+            }
+            else {
+                logoLabel.Visibility = Visibility.Visible;
+            }
             versionLabel.Content = App.version.ToString(".0") + " " + (App.beta ? "beta" : "stable");
             mainFrame.NavigationService.Navigate(new mainPage());
         }

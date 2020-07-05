@@ -14,6 +14,7 @@ GBxCart RW allows you to dump your Gameboy / Gameboy Colour / Gameboy Advance ga
 #include <math.h>
 #include <time.h>
 #include <windows.h>
+#include <string>
 
 
 extern "C" {
@@ -22,13 +23,6 @@ extern "C" {
 	typedef unsigned char uint8_t;
 #endif
 
-#ifndef uint16_t
-	typedef unsigned int uint16_t;
-#endif
-
-#ifndef uint32_t
-	typedef unsigned long uint32_t;
-#endif
 
 extern void RS232_cputs(int comport_number, const char *text);
 extern int RS232_SendByte(int comport_number, unsigned char byte);
@@ -173,6 +167,8 @@ uint8_t nintendoLogoGBA[] = { 0x24, 0xFF, 0xAE, 0x51, 0x69, 0x9A, 0xA2, 0x21, 0x
 	0xA9, 0x63, 0xBE, 0x03, 0x01, 0x4E, 0x38, 0xE2, 0xF9, 0xA2, 0x34, 0xFF, 0xBB, 0x3E, 0x03, 0x44,
 	0x78, 0x00, 0x90, 0xCB, 0x88, 0x11, 0x3A, 0x94, 0x65, 0xC0, 0x7C, 0x63, 0x87, 0xF0, 0x3C, 0xAF,
 	0xD6, 0x25, 0xE4, 0x8B, 0x38, 0x0A, 0xAC, 0x72, 0x21, 0xD4, 0xF8, 0x07 };
+
+using namespace std;
 
 // Read config file for com port and baud rate
 __declspec(dllexport) int read_config(int type) {
@@ -1665,22 +1661,25 @@ __declspec(dllexport) void read_rom(uint8_t cartMode, uint32_t &progress, uint8_
 	//cartridgeMode = read_cartridge_mode();
 	printf("\n--- Dump ROM ---\n");
 
-	char titleFilename[250];
-	strncpy(titleFilename, currentFolder, 219);
-	strncat(titleFilename, "\\", 3);
-	strncat(titleFilename, gameTitle, 20);
+	//char titleFilename[250];
+	string strTitle = gameTitle;
+	string titleFile = "./" + strTitle;
+	//strncat(titleFilename, "./", 2);
+	//strncat(titleFilename, gameTitle, 20);
 	if (cartMode == GB_MODE) {
-		strncat(titleFilename, ".gb", 3);
+		titleFile += ".gb";
+		//strncat(titleFilename, ".gb", 3);
 	}
 	else {
-		strncat(titleFilename, ".gba", 4);
+		titleFile += ".gba";
+		//strncat(titleFilename, ".gba", 4);
 	}
 
-	printf("Dumping ROM to %s\n", titleFilename);
+	printf("Dumping ROM to %s\n", titleFile);
 	printf("[             25%%             50%%             75%%            100%%]\n[");
 
 	// Create a new file
-	FILE *romFile = fopen(titleFilename, "wb");
+	FILE *romFile = fopen(titleFile.data(), "wb");
 
 	uint32_t readBytes = 0;
 	if (cartMode == GB_MODE) {
@@ -1837,20 +1836,22 @@ __declspec(dllexport) void read_rom(uint8_t cartMode, uint32_t &progress, uint8_
 		printf("]");
 		com_read_stop(); // Stop reading
 	}
-
-	fclose(romFile);
+	if (romFile != NULL) {
+		fclose(romFile);
+	}
 	printf("\nFinished\n");
 }
 
 
 __declspec(dllexport) int check_if_file_exists() {
-	char titleFilename[250];
-	strncpy(titleFilename, currentFolder, 219);
-	strncat(titleFilename, "\\", 3);
-	strncat(titleFilename, gameTitle, 20);
-	strncat(titleFilename, ".sav", 4);
+	//char titleFilename[250];
+	//strncpy(titleFilename, currentFolder, 219);
+	//strncat(titleFilename, "\\", 3);
+	//strncat(titleFilename, gameTitle, 20);
+	//strncat(titleFilename, ".sav", 4);
+	string titleFile = "./" + (string)gameTitle+".sav";
 
-	FILE *testFile = fopen(titleFilename, "rb");
+	FILE *testFile = fopen(titleFile.data(), "rb");
 	if (testFile != NULL) {
 		fclose(testFile);
 		return 1;
@@ -1869,10 +1870,11 @@ __declspec(dllexport) void read_ram(int saveAsNewFile, uint32_t &progress, uint8
 	if (cartridgeMode == GB_MODE) {
 		// Does cartridge have RAM
 		if (ramEndAddress > 0) {
-			char titleFilename[250];
-			strncpy(titleFilename, currentFolder, 219);
-			strncat(titleFilename, "\\", 3);
-			strncat(titleFilename, gameTitle, 20);
+			//char titleFilename[250];
+			//strncpy(titleFilename, currentFolder, 219);
+			//strncat(titleFilename, "\\", 3);
+			//strncat(titleFilename, gameTitle, 20);
+			string titleFile = "./" + (string)gameTitle;
 
 			// Add date/time to save file
 			if (saveAsNewFile == true) {
@@ -1884,15 +1886,15 @@ __declspec(dllexport) void read_ram(int saveAsNewFile, uint32_t &progress, uint8
 				timeinfo = localtime(&rawtime);
 				strftime(timebuffer, 80, "_%Y.%m.%d-%H.%M.%S", timeinfo);
 
-				strncat(titleFilename, timebuffer, 25);
+				titleFile += timebuffer;
 			}
-			strncat(titleFilename, ".sav", 4);
+			titleFile += ".sav";
 		
-			printf("Saving RAM to %s\n", titleFilename);
+			printf("Saving RAM to %s\n", titleFile);
 			printf("[             25%%             50%%             75%%            100%%]\n[");
 
 			// Create a new file
-			FILE *ramFile = fopen(titleFilename, "wb");
+			FILE *ramFile = fopen(titleFile.data(), "wb");
 
 			mbc2_fix();
 			if (cartridgeType <= 4) { // MBC1
@@ -2050,10 +2052,11 @@ __declspec(dllexport) void read_ram(int saveAsNewFile, uint32_t &progress, uint8
 	else { // GBA mode
 		// Does cartridge have RAM
 		if (ramEndAddress > 0 || eepromEndAddress > 0) {
-			char titleFilename[250];
-			strncpy(titleFilename, currentFolder, 219);
-			strncat(titleFilename, "\\", 3);
-			strncat(titleFilename, gameTitle, 20);
+			//char titleFilename[250];
+			//strncpy(titleFilename, currentFolder, 219);
+			//strncat(titleFilename, "\\", 3);
+			//strncat(titleFilename, gameTitle, 20);
+			string titleFile = "./" + (string)gameTitle;
 
 			// Add date/time to save file
 			if (saveAsNewFile == true) {
@@ -2065,16 +2068,16 @@ __declspec(dllexport) void read_ram(int saveAsNewFile, uint32_t &progress, uint8
 				timeinfo = localtime(&rawtime);
 				strftime(timebuffer, 80, "_%Y.%m.%d-%H.%M.%S", timeinfo);
 
-				strncat(titleFilename, timebuffer, 25);
+				titleFile += timebuffer;
 			}
-			strncat(titleFilename, ".sav", 4);
+			titleFile += ".sav";
 
 			// Create a new file
-			FILE *ramFile = fopen(titleFilename, "wb");
+			FILE *ramFile = fopen(titleFile.data(), "wb");
 
 			// SRAM/Flash
 			if (ramEndAddress > 0) {
-				printf("Saving RAM (SRAM/Flash) to %s\n", titleFilename);
+				printf("Saving RAM (SRAM/Flash) to %s\n", titleFile);
 				printf("[             25%%             50%%             75%%            100%%]\n[");
 
 				xmas_setup((ramBanks * ramEndAddress) / 28);
@@ -2149,7 +2152,7 @@ __declspec(dllexport) void read_ram(int saveAsNewFile, uint32_t &progress, uint8
 
 			// EEPROM
 			else {
-				printf("Saving RAM (EEPROM) to %s\n", titleFilename);
+				printf("Saving RAM (EEPROM) to %s\n", titleFile);
 				printf("[             25%%             50%%             75%%            100%%]\n[");
 
 				xmas_setup(eepromEndAddress / 28);
@@ -2201,22 +2204,24 @@ __declspec(dllexport) void write_ram(char* writeSaveFileName, uint32_t &progress
 	if (cartridgeMode == GB_MODE) {
 		// Does cartridge have RAM
 		if (ramEndAddress > 0) {
-			char titleFilename[250];
-			
+			//char titleFilename[250];
+			string fileName = "";
 			if (strlen(writeSaveFileName) >= 5) {
-				strncpy(titleFilename, writeSaveFileName, 249);
+				fileName += writeSaveFileName;
+				//strncpy(titleFilename, writeSaveFileName, 249);
 			}
 			else {
-				strncpy(titleFilename, currentFolder, 219);
-				strncat(titleFilename, "\\", 3);
-				strncat(titleFilename, gameTitle, 20);
-				strncat(titleFilename, ".sav", 4);
+				//strncpy(titleFilename, currentFolder, 219);
+				//strncat(titleFilename, "\\", 3);
+				//strncat(titleFilename, gameTitle, 20);
+				//strncat(titleFilename, ".sav", 4);
+				fileName += "./"+(string)gameTitle+".sav";
 			}
 
 			// Open file
-			FILE *ramFile = fopen(titleFilename, "rb");
+			FILE *ramFile = fopen(fileName.data(), "rb");
 			if (ramFile != NULL) {
-				printf("\nWriting to RAM from %s\n", titleFilename);
+				printf("\nWriting to RAM from %s\n", fileName);
 				printf("[             25%%             50%%             75%%            100%%]\n[");
 
 				mbc2_fix();
@@ -2259,7 +2264,7 @@ __declspec(dllexport) void write_ram(char* writeSaveFileName, uint32_t &progress
 				printf("\nFinished\n");
 			}
 			else {
-				printf("%s File not found\n", titleFilename);
+				printf("%s File not found\n", fileName);
 			}
 		}
 		else {
@@ -2269,20 +2274,22 @@ __declspec(dllexport) void write_ram(char* writeSaveFileName, uint32_t &progress
 	else { // GBA mode
 		   // Does cartridge have RAM
 		if (ramEndAddress > 0 || eepromEndAddress > 0) {
-			char titleFilename[250];
-
+			//char titleFilename[250];
+			string fileName = "";
 			if (strlen(writeSaveFileName) >= 5) {
-				strncpy(titleFilename, writeSaveFileName, 249);
+				fileName += writeSaveFileName;
+				//strncpy(titleFilename, writeSaveFileName, 249);
 			}
 			else {
-				strncpy(titleFilename, currentFolder, 219);
-				strncat(titleFilename, "\\", 3);
-				strncat(titleFilename, gameTitle, 20);
-				strncat(titleFilename, ".sav", 4);
+				//strncpy(titleFilename, currentFolder, 219);
+				//strncat(titleFilename, "\\", 3);
+				//strncat(titleFilename, gameTitle, 20);
+				//strncat(titleFilename, ".sav", 4);
+				fileName += "./" + (string)gameTitle + ".sav";
 			}
 
 			// Open file
-			FILE *ramFile = fopen(titleFilename, "rb");
+			FILE *ramFile = fopen(fileName.data(), "rb");
 			if (ramFile != NULL) {
 
 				// SRAM/Flash or EEPROM
@@ -2293,26 +2300,26 @@ __declspec(dllexport) void write_ram(char* writeSaveFileName, uint32_t &progress
 					}
 
 					if (hasFlashSave >= FLASH_FOUND) {
-						printf("Going to write to RAM (Flash) from %s", titleFilename);
+						printf("Going to write to RAM (Flash) from %s", fileName);
 					}
 					else {
-						printf("Going to write to RAM (SRAM) from %s", titleFilename);
+						printf("Going to write to RAM (SRAM) from %s", fileName);
 					}
 				}
 				else {
-					printf("Going to write to RAM (EEPROM) from %s", titleFilename);
+					printf("Going to write to RAM (EEPROM) from %s", fileName);
 				}
 
 				if (eepromSize == EEPROM_NONE) {
 					if (hasFlashSave >= FLASH_FOUND) {
-						printf("\nWriting to RAM (Flash) from %s", titleFilename);
+						printf("\nWriting to RAM (Flash) from %s", fileName);
 					}
 					else {
-						printf("\nWriting to RAM (SRAM) from %s", titleFilename);
+						printf("\nWriting to RAM (SRAM) from %s", fileName);
 					}
 				}
 				else {
-					printf("\nWriting to RAM (EEPROM) from %s", titleFilename);
+					printf("\nWriting to RAM (EEPROM) from %s", fileName);
 				}
 				printf("\n[             25%%             50%%             75%%            100%%]\n[");
 
@@ -2459,7 +2466,7 @@ __declspec(dllexport) void write_ram(char* writeSaveFileName, uint32_t &progress
 				
 			}
 			else {
-				printf("%s File not found\n", titleFilename);
+				printf("%s File not found\n", fileName);
 			}
 		}
 		else {

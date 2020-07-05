@@ -17,8 +17,7 @@ namespace GBxHub
     public partial class App : Application
     {
 
-        const string dllLocation = ".\\bin\\GBxCart_RW_COMLib.dll";
-        //const string dllLocation = "C:\\Users\\Alex\\Documents\\Visual Studio 2015\\Projects\\GBxCart_RW_COMLib\\Release\\GBxCart_RW_COMLib.dll";
+        const string dllLocation = ".\\bin\\GBxHub.RS232.interop.dll";
 
         [DllImport(dllLocation, CallingConvention = CallingConvention.Cdecl)]
         public static extern int RS232_OpenComport(int comport_number, int baudrate, string mode);
