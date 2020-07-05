@@ -64,15 +64,15 @@ namespace GBxHub
         {
             if (_cartTypes.TryGetValue(chipTypeComboBox.Text, out var writeRomCartType))
             {
-                var process = new Process();
-                var startInfo = new ProcessStartInfo
+                var process = new Process
                 {
-                    WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal, FileName = "bin\\flasher.exe",
-                    Arguments = @" \" + romPathTextBox.Text + @"\ " + writeRomCartType
-
+                    StartInfo = new ProcessStartInfo
+                    {
+                        WindowStyle = ProcessWindowStyle.Normal,
+                        FileName = "bin\\flasher.exe",
+                        Arguments = @" \" + romPathTextBox.Text + @"\ " + writeRomCartType
+                    }
                 };
-
-                process.StartInfo = startInfo;
 
                 try
                 {
