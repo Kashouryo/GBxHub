@@ -103,10 +103,9 @@ namespace GBxHub
         {
             var fileNames = (string[])e.Data.GetData(DataFormats.FileDrop);
             var fileName = fileNames?.FirstOrDefault();
-            if (fileName == null) return;
+            if (string.IsNullOrEmpty(fileName)) return;
 
-            var ext = Path.GetExtension(fileName);
-            switch (ext)
+            switch (Path.GetExtension(fileName))
             {
                 case ".gb":
                 case ".gbc":
@@ -115,9 +114,13 @@ namespace GBxHub
                     flashButton.IsEnabled = true;
                     break;
                 case ".zip":
+                    romPathTextBox.Text = string.Empty;
+                    flashButton.IsEnabled = false;
                     MessageBox.Show("Not yet implimented zip extraction", "Info", MessageBoxButton.OK, MessageBoxImage.Warning);
                     break;
                 default:
+                    romPathTextBox.Text = string.Empty;
+                    flashButton.IsEnabled = false;
                     MessageBox.Show("Invalid file type, accepted types are [.gb, .gbc, .gba, and .zip].", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     break;
             }
