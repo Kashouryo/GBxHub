@@ -24,6 +24,9 @@ namespace GBxHub
         public MainWindow()
         {
             InitializeComponent();
+            var logoImg = new ImageBrush();
+            logoImg.ImageSource = new BitmapImage(new Uri(".\\assets\\igcartsmall.png", UriKind.Relative));
+            logoImage.Fill = logoImg;
             if (File.Exists(".\\assets\\background.png"))
             {
                 var brush = new ImageBrush();

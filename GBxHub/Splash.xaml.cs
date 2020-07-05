@@ -26,6 +26,10 @@ namespace GBxHub
         public Splash()
         {
             InitializeComponent();
+            var bigIcon = new ImageBrush();
+            bigIcon.ImageSource = new BitmapImage(new Uri(".\\assets\\igcart.png", UriKind.Relative));
+            largeLogo.Fill = bigIcon;
+
             if (File.Exists(".\\assets\\gbxlogo.png"))
             {
                 var brush = new ImageBrush();

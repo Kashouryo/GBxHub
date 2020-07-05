@@ -7,18 +7,22 @@
         mc:Ignorable="d"
         Title="insideGadgets GBxHub" Height="390.5" Width="599" Background="#FF5D5D5D" Foreground="White" ResizeMode="NoResize">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="382*"/>
+            <ColumnDefinition Width="211*"/>
+        </Grid.ColumnDefinitions>
         <Grid.Background>
             <ImageBrush/>
         </Grid.Background>
-        <Rectangle x:Name="bgRectangle" HorizontalAlignment="Left" Height="380" Stroke="Black" VerticalAlignment="Top" Width="609" Opacity="0.4" Margin="-10,-10,-8,-11">
+        <Rectangle x:Name="bgRectangle" HorizontalAlignment="Left" Height="380" Stroke="Black" VerticalAlignment="Top" Width="609" Opacity="0.4" Margin="-10,-10,-6,-9" Grid.ColumnSpan="2">
             <Rectangle.Effect>
                 <BlurEffect Radius="4"/>
             </Rectangle.Effect>
         </Rectangle>
         <Label x:Name="logoLabel" Content="GBxHub" HorizontalAlignment="Left" Margin="49,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="29" FontFamily="Calibri" Height="41" Visibility="Hidden"/>
         <Label x:Name="versionLabel" Content="Label" HorizontalAlignment="Left" Margin="149,26,0,0" VerticalAlignment="Top" Foreground="#FFE0E0E0" Height="23"/>
-        <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden" Content="" HorizontalAlignment="Left" Height="267" Margin="10,49,0,0" VerticalAlignment="Top" Width="571" Focusable="False" IsTabStop="False"/>
-        <Image x:Name="logoImage" Source="/gbxui;component/Resources/igcartsmall.png" HorizontalAlignment="Left" Height="39" Margin="10,10,0,0" VerticalAlignment="Top" Width="39"/>
+        <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden" Content="" HorizontalAlignment="Left" Height="267" Margin="10,49,0,0" VerticalAlignment="Top" Width="571" Focusable="False" IsTabStop="False" Grid.ColumnSpan="2"/>
+        <Rectangle x:Name="logoImage"  HorizontalAlignment="Left" Height="39" Margin="10,10,0,0" VerticalAlignment="Top" Width="39"/>
         <Rectangle x:Name="gbxImageLogo" HorizontalAlignment="Left" Height="21" Margin="54,24,0,0" VerticalAlignment="Top" Width="95"/>
         <Label Content="2020 LovelyA72  This is not an insideGadgets official software" HorizontalAlignment="Left" Margin="10,316,0,0" VerticalAlignment="Top" Foreground="#FFE0E0E0"/>
         <TextBlock HorizontalAlignment="Left" Margin="54,10,0,0" TextWrapping="Wrap" Text="insideGadgets" VerticalAlignment="Top" Foreground="White" FontSize="11"/>

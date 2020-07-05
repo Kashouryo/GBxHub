@@ -1,0 +1,61 @@
+﻿<Page x:Class="GBxHub.pages.WriterPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GBxHub.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="WriterPage" Width="571" Height="267">
+
+    <Grid Width="571" Height="267">
+        <Button Content="Back" HorizontalAlignment="Left" Height="28" Margin="10,229,0,0" VerticalAlignment="Top" Width="93" Click="Button_Click"/>
+        <Label Content="Flash Chip/Type" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <ComboBox x:Name="chipTypeComboBox" HorizontalAlignment="Left" Margin="117,46,0,0" VerticalAlignment="Top" Width="444" IsEditable="True">
+            <ComboBoxItem Content="*** Gameboy Flash Carts ***"/>
+            <ComboBoxItem Content="insideGadgets 32KB (incl 4KB FRAM) Cart"/>
+            <ComboBoxItem Content="insideGadgets 512KB Cart"/>
+            <ComboBoxItem Content="insideGadgets 1MB 128KB SRAM Cart"/>
+            <ComboBoxItem Content="insideGadgets 1MB 128KB SRAM Custom Logo Cart"/>
+            <ComboBoxItem Content="insideGadgets 2MB 128KB SRAM Cart"/>
+            <ComboBoxItem Content="insideGadgets 2MB 32KB FRAM Cart"/>
+            <ComboBoxItem Content="insideGadgets 4MB 128KB SRAM/FRAM Cart"/>
+            <ComboBoxItem Content="insideGadgets 4MB 32KB FRAM MBC3 RTC Flash Cart"/>
+            <ComboBoxItem Content="insideGadgets 64MB 128KB SRAM Cart "/>
+            <ComboBoxItem Content="insideGadgets 64MB 128KB SRAM Cart (Exp)"/>
+            <ComboBoxItem Content=""/>
+            <ComboBoxItem Content="32KB AM29F010B (WR)"/>
+            <ComboBoxItem Content="32KB AM29F010B (Audio)"/>
+            <ComboBoxItem Content="32KB SST39SF010A / AT49F040 (WR)"/>
+            <ComboBoxItem Content="32KB SST39SF010A / AT49F040 (Audio)"/>
+            <ComboBoxItem Content="512KB SST39SF040"/>
+            <ComboBoxItem Content="512KB AM29LV160 with CPLD"/>
+            <ComboBoxItem Content="1MB ES29LV160"/>
+            <ComboBoxItem Content="1MB 29LV320 with CPLD"/>
+            <ComboBoxItem Content="2MB BV5"/>
+            <ComboBoxItem Content="2MB AM29LV160DB / 29LV160CTTC / 29LV160TE"/>
+            <ComboBoxItem Content="2MB AM29F016B / 4MB AM29F032B"/>
+            <ComboBoxItem Content="2MB AM29F016B / 4MB AM29F032B (Audio as WE)"/>
+            <ComboBoxItem Content="2MB GB Smart 16M"/>
+            <ComboBoxItem Content="4MB M29W640 / 29DL32BF / GL032A10BAIR4 / S29AL016M9"/>
+            <ComboBoxItem Content="4MB AM29F032B / MBM29F033C"/>
+            <ComboBoxItem Content="32MB (4x 8MB Banks) 256M29"/>
+            <ComboBoxItem Content="32MB (4x 8MB Banks) M29W256 / MX29GL256"/>
+            <ComboBoxItem Content=""/>
+            <ComboBoxItem Content="*** Gameboy Advance Flash Carts ***"/>
+            <ComboBoxItem Content="insideGadgets 32MB (512Kbit/1Mbit Flash Save) or (256Kbit FRAM) Flash Cart"/>
+            <ComboBoxItem Content="insideGadgets 32MB 4Kbit/64Kbit EEPROM Flash Cart"/>
+            <ComboBoxItem Content="4MB MX29LV320"/>
+            <ComboBoxItem Content="16MB MSP55LV128 / 29LV128DTMC"/>
+            <ComboBoxItem Content="16MB MSP55LV128M / 29GL128EHMC / MX29GL128ELT / M29W128 / S29GL128 / 32MB 256M29EWH"/>
+            <ComboBoxItem Content="16MB M36L0R706 / 32MB 256L30B / 4455LLZBQO / 4000L0YBQ0"/>
+            <ComboBoxItem Content="16MB M36L0R706 (2) / 32MB 256L30B (2) / 4455LLZBQO (2) / 4000L0YBQ0 (2)"/>
+            <ComboBoxItem Content="16MB GE28F128W30"/>
+        </ComboBox>
+        <Button x:Name="romSelectButton" Content="Select ROM File" HorizontalAlignment="Left" Margin="10,175,0,0" VerticalAlignment="Top" Width="117" Height="27" Click="romSelectButton_Click"/>
+        <Label Content="ROM File" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <TextBox x:Name="romPathTextBox" HorizontalAlignment="Left" Height="23" Margin="10,119,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="551"/>
+        <Button x:Name="flashButton" Content="Write ROM" IsEnabled="False" HorizontalAlignment="Left" Margin="444,175,0,0" VerticalAlignment="Top" Width="117" Height="27" Click="flashButton_Click"/>
+
+    </Grid>
+</Page>

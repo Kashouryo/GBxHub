@@ -51,7 +51,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="pages\ReaderPage.xaml.cs">
+    <Compile Include="ReaderPage.xaml.cs">
       <DependentUpon>ReaderPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Splash.xaml.cs">
@@ -61,7 +61,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="pages\MainPage.xaml">
+    <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -73,18 +73,18 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="pages\MainPage.xaml.cs">
+    <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="pages\WriterPage.xaml">
+    <Page Include="WriterPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pages\ReaderPage.xaml">
+    <Page Include="ReaderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -94,7 +94,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="pages\WriterPage.xaml.cs">
+    <Compile Include="WriterPage.xaml.cs">
       <DependentUpon>WriterPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -123,10 +123,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\gbxui\gbxui.csproj">
-      <Project>{9e8fbd0d-7b73-48aa-8d63-ce00225e9ab6}</Project>
-      <Name>gbxui</Name>
-    </ProjectReference>
+    <Folder Include="pages\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

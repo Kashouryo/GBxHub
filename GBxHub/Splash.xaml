@@ -15,7 +15,7 @@
                 <GradientStop Color="#FFA6A6A6" Offset="0.837"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Image Source="file:///C:/GitHub/GBxHub/gbxui/Resources/igcart.png" HorizontalAlignment="Left" Height="105" Margin="10,10,0,0" VerticalAlignment="Top" Width="105"/>
+        <Rectangle x:Name="largeLogo" HorizontalAlignment="Left" Height="105" Margin="10,10,0,0" VerticalAlignment="Top" Width="105"/>
         <TextBlock HorizontalAlignment="Left" Margin="115,20,0,0" TextWrapping="Wrap" Text="insideGadgets" VerticalAlignment="Top" Foreground="White"/>
         <TextBlock x:Name="logoLabel" HorizontalAlignment="Left" Margin="115,34,0,0" TextWrapping="Wrap" Text="GBxHub" VerticalAlignment="Top" Foreground="White" FontSize="24" Visibility="Hidden"/>
         <TextBlock HorizontalAlignment="Left" Margin="238,46,0,0" TextWrapping="Wrap" Text="for GBxCart by insideGadgets" VerticalAlignment="Top" Foreground="White"/>
