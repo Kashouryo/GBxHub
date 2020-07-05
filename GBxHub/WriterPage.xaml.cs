@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using Microsoft.Win32;
 
 namespace GBxHub
@@ -70,7 +73,7 @@ namespace GBxHub
                     {
                         WindowStyle = ProcessWindowStyle.Normal,
                         FileName = "bin\\flasher.exe",
-                        Arguments = @" \" + romPathTextBox.Text + @"\ " + writeRomCartType
+                        Arguments = $" \"{romPathTextBox.Text}\" {writeRomCartType}"
                     }
                 };
 
@@ -94,6 +97,35 @@ namespace GBxHub
             if (!(bool)openFileDialog1.ShowDialog()) return;
             flashButton.IsEnabled = true;
             romPathTextBox.Text = openFileDialog1.FileName;
+        }
+
+        private void romPathTextBox_Drop(object sender, DragEventArgs e)
+        {
+            var fileNames = (string[])e.Data.GetData(DataFormats.FileDrop);
+            var fileName = fileNames?.FirstOrDefault();
+            if (fileName == null) return;
+
+            var ext = Path.GetExtension(fileName);
+            switch (ext)
+            {
+                case ".gb":
+                case ".gbc":
+                case ".gba":
+                    romPathTextBox.Text = fileName;
+                    flashButton.IsEnabled = true;
+                    break;
+                case ".zip":
+                    MessageBox.Show("Not yet implimented zip extraction", "Info", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    break;
+                default:
+                    MessageBox.Show("Invalid file type, accepted types are [.gb, .gbc, .gba, and .zip].", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    break;
+            }
+        }
+
+        private void romPathTextBox_PreviewDragOver(object sender, DragEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

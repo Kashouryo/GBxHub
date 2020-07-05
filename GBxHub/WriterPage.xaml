@@ -53,7 +53,7 @@
         </ComboBox>
         <Button x:Name="romSelectButton" Content="Select ROM File" HorizontalAlignment="Left" Margin="10,175,0,0" VerticalAlignment="Top" Width="117" Height="27" Click="romSelectButton_Click"/>
         <Label Content="ROM File" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox x:Name="romPathTextBox" HorizontalAlignment="Left" Height="23" Margin="10,119,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="551"/>
+        <TextBox x:Name="romPathTextBox" HorizontalAlignment="Left" Height="23" Margin="10,119,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="551" AllowDrop="True" Drop="romPathTextBox_Drop" PreviewDragOver="romPathTextBox_PreviewDragOver"/>
         <Button x:Name="flashButton" Content="Write ROM" IsEnabled="False" HorizontalAlignment="Left" Margin="444,175,0,0" VerticalAlignment="Top" Width="117" Height="27" Click="flashButton_Click"/>
 
     </Grid>
