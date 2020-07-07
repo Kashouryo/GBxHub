@@ -38,6 +38,7 @@
             <ComboBoxItem Content="2MB GB Smart 16M"/>
             <ComboBoxItem Content="4MB M29W640 / 29DL32BF / GL032A10BAIR4 / S29AL016M9"/>
             <ComboBoxItem Content="4MB AM29F032B / MBM29F033C"/>
+            <ComboBoxItem Content="4MB S29GL032 with CPLD"/>
             <ComboBoxItem Content="32MB (4x 8MB Banks) 256M29"/>
             <ComboBoxItem Content="32MB (4x 8MB Banks) M29W256 / MX29GL256"/>
             <ComboBoxItem Content=""/>

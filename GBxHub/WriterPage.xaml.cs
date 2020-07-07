@@ -41,6 +41,7 @@ namespace GBxHub
             {"2MB GB Smart 16M", 13},
             {"4MB M29W640 / 29DL32BF / GL032A10BAIR4 / S29AL016M9", 14},
             {"4MB AM29F032B / MBM29F033C", 15},
+            {"4MB S29GL032 with CPLD", 39},
             {"32MB (4x 8MB Banks) 256M29", 16},
             {"32MB (4x 8MB Banks) M29W256 / MX29GL256", 17},
             {"insideGadgets 32MB (512Kbit/1Mbit Flash Save) or (256Kbit FRAM) Flash Cart", 20},
