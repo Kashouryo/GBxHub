@@ -57,7 +57,7 @@
                 <ImageBrush ImageSource="./assets/gbxwrite.png" Stretch="Uniform"/>
             </-->
         </Button>
-        <Button x:Name="utilButton" Content="" HorizontalAlignment="Left" Margin="452,43,0,0" VerticalAlignment="Top" Width="109" Height="109" BorderBrush="#FFCBCBCB">
+        <Button x:Name="utilButton" Content="" Click="utilButton_Click" HorizontalAlignment="Left" Margin="452,43,0,0" VerticalAlignment="Top" Width="109" Height="109" BorderBrush="#FFCBCBCB">
             <Button.Style>
                 <Style TargetType="Button">
                     <Setter Property="Template">

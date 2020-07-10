@@ -541,7 +541,7 @@ namespace GBxHub
                     int firmwareVersion = App.read_firmware_version();
                     if (firmwareVersion >= 1)
                     {
-                        frimwareLabel.Content = "Frimware: R" + firmwareVersion;
+                        frimwareLabel.Content = "Firmware: R" + firmwareVersion;
                     }
 
                     // Change icon/buttons

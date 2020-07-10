@@ -63,5 +63,18 @@ namespace GBxHub
                 MessageBox.Show(e.ToString());
             }
         }
+
+        private void utilButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                NavigationService ns = NavigationService.GetNavigationService(this);
+                ns.Navigate(new Uri("UtilityPage.xaml", UriKind.Relative));
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
     }
 }
