@@ -5,11 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GBxHub"
         mc:Ignorable="d"
-        Title="AddressHelper" Height="234" Width="509" ResizeMode="NoResize">
+        Title="AddressHelper" Height="342" Width="509" ResizeMode="NoResize" Loaded="addressCheckBox_Click">
 
     <Grid Background="#FF5D5D5D">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
-        <GroupBox Header="Gameboy Address Pin" HorizontalAlignment="Left" Height="75" Margin="10,10,0,0" VerticalAlignment="Top" Width="478" UseLayoutRounding="False" BorderThickness="0.5" Foreground="White">
+        <GroupBox Header="Gameboy Address Pin" HorizontalAlignment="Left" Height="65" Margin="10,10,0,0" VerticalAlignment="Top" Width="478" UseLayoutRounding="False" BorderThickness="0.5" Foreground="White">
             <Grid>
                 <CheckBox x:Name="a0CheckBox" Click="addressCheckBox_Click" Content="A0" HorizontalAlignment="Left" Height="19" Margin="3,7,0,0" VerticalAlignment="Top" Foreground="White"/>
                 <CheckBox x:Name="a1CheckBox" Click="addressCheckBox_Click" Content="A1" HorizontalAlignment="Left" Height="19" Margin="43,7,0,0" VerticalAlignment="Top" Foreground="White"/>
@@ -29,9 +32,34 @@
                 <CheckBox x:Name="a15CheckBox" Click="addressCheckBox_Click" Content="A15" HorizontalAlignment="Left" Height="19" Margin="323,27,0,0" VerticalAlignment="Top" Foreground="White"/>
             </Grid>
         </GroupBox>
-        <Label Content="Hex: " HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20"/>
-        <TextBox x:Name="addressBox" HorizontalAlignment="Left" Height="29" Margin="68,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="18"/>
-        <Label Content="Dec: " HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20"/>
-        <TextBox x:Name="addressDecBox" HorizontalAlignment="Left" Height="29" Margin="68,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="18"/>
+        <Label Content="Hex: " HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20"/>
+        <TextBox x:Name="addressBox" HorizontalAlignment="Left" Height="29" Margin="68,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="18"/>
+        <Label Content="Dec: " HorizontalAlignment="Left" Margin="10,235,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20"/>
+        <TextBox x:Name="addressDecBox" HorizontalAlignment="Left" Height="29" Margin="68,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="18"/>
+        <GroupBox Header="Mapper" HorizontalAlignment="Left" Height="50" Margin="10,80,0,0" VerticalAlignment="Top" Width="478" UseLayoutRounding="False" BorderThickness="0.5" Foreground="White">
+            <Grid Margin="0,0,0,-12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <RadioButton Click="addressCheckBox_Click" x:Name="noMapperRadioButton" Content="None" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" IsChecked="True"/>
+                <RadioButton Click="addressCheckBox_Click" x:Name="mbc1RadioButton" Content="MBC1" HorizontalAlignment="Left" Margin="66,10,0,0" VerticalAlignment="Top" Foreground="White"/>
+
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Control Pins" HorizontalAlignment="Left" Height="50" Margin="10,135,0,0" VerticalAlignment="Top" Width="178" UseLayoutRounding="False" BorderThickness="0.5" Foreground="White">
+            <Grid Margin="0,0,0,-12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <CheckBox x:Name="wrCheckBox" Click="addressCheckBox_Click" Content="WR" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.25,0" Foreground="White"/>
+
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="What does it mean..." HorizontalAlignment="Left" Height="154" Margin="193,135,0,0" VerticalAlignment="Top" Width="285" UseLayoutRounding="False" BorderThickness="0.5" Foreground="White">
+            <Grid Margin="0,0,0,-12">
+                <TextBlock x:Name="meaningTextBlock" HorizontalAlignment="Left" Margin="5,5,5,5" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>
