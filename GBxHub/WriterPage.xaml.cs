@@ -46,6 +46,7 @@ namespace GBxHub
             {"32MB (4x 8MB Banks) M29W256 / MX29GL256", 17},
             {"insideGadgets 32MB (512Kbit/1Mbit Flash Save) or (256Kbit FRAM) Flash Cart", 20},
             {"insideGadgets 32MB 4Kbit/64Kbit EEPROM Flash Cart", 27},
+            {"insideGadgets 32MB RTC 1Mbit Flash Save Flash Cart",41 },
             {"4MB MX29LV320", 26},
             {"16MB MSP55LV128 / 29LV128DTMC", 21},
             {"16MB MSP55LV128M / 29GL128EHMC / MX29GL128ELT / M29W128 / S29GL128 / 32MB 256M29EWH", 22},
