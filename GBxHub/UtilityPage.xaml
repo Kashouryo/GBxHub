@@ -12,12 +12,12 @@
 
 
         <Button x:Name="backButton" Content="Back" HorizontalAlignment="Left" Height="28" Margin="10,224,0,0" VerticalAlignment="Top" Width="93" Click="Button_Click"/>
-        <Label Content="Address Helper" HorizontalAlignment="Left" Margin="75,123,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White"/>
-        <Label Content="A graphical tool that helps you convert" HorizontalAlignment="Left" Margin="75,143,0,0" VerticalAlignment="Top" FontSize="11" Foreground="White"/>
-        <Label Content="Gameboy address pins to hex address" HorizontalAlignment="Left" Margin="75,158,0,0" VerticalAlignment="Top" FontSize="11" Foreground="White"/>
-        <Rectangle Fill="#FF6E6E6E" HorizontalAlignment="Left" Height="62" Margin="14,128,0,0" Stroke="White" VerticalAlignment="Top" Width="62"/>
+        <Label Content="Address Helper" HorizontalAlignment="Left" Margin="75,11,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White"/>
+        <Label Content="A graphical tool that helps you convert" HorizontalAlignment="Left" Margin="75,31,0,0" VerticalAlignment="Top" FontSize="11" Foreground="White"/>
+        <Label Content="Gameboy address pins to hex address" HorizontalAlignment="Left" Margin="75,46,0,0" VerticalAlignment="Top" FontSize="11" Foreground="White"/>
+        <Rectangle Fill="#FF6E6E6E" HorizontalAlignment="Left" Height="62" Margin="14,16,0,0" Stroke="White" VerticalAlignment="Top" Width="62"/>
 
-        <Button x:Name="appAddressHelperButton" Content="" Click="utilButton_Click" HorizontalAlignment="Left" Margin="15,129,0,0" VerticalAlignment="Top" Width="60" Height="60" BorderBrush="#FFCBCBCB">
+        <Button x:Name="appAddressHelperButton" Content="" Click="utilButton_Click" HorizontalAlignment="Left" Margin="15,17,0,0" VerticalAlignment="Top" Width="60" Height="60" BorderBrush="#FFCBCBCB">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Template">

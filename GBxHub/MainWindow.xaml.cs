@@ -42,7 +42,7 @@ namespace GBxHub
             else {
                 logoLabel.Visibility = Visibility.Visible;
             }
-            versionLabel.Content = App.version.ToString(".0") + " " + (App.beta ? "beta" : "stable");
+            versionLabel.Content = App.version.ToString(".0") + " " + (App.beta ? "beta" : "stable")+"  "+App.additionalVersion;
             mainFrame.NavigationService.Navigate(new mainPage());
         }
 

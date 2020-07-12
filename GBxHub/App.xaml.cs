@@ -87,8 +87,10 @@ namespace GBxHub
         [DllImport(dllLocation, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern void update_current_folder(string folderName);
 
-        public const float version = 1.0f;
+        public const float version = 1.1f;
         public const bool beta = true;
+        public const string additionalVersion = "";
+
         private static App application = new App();
 
         [STAThread]
