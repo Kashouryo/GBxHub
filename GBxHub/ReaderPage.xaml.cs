@@ -738,5 +738,23 @@ namespace GBxHub
                 }
             }
         }
+
+        private void writeRamButton_Wipe_Click(object sender, RoutedEventArgs e)
+        {
+            if (comConnected == true && headerRead == true && commandReceived == 0)
+            {
+                progress = 0;
+                backgroundWorker1.ReportProgress(0);
+                if (MessageBox.Show("This will erase the save game from your Gameboy / Gameboy Advance cart.\nPress Yes to continue or No to abort.", "Confirm Erase", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    commandReceived = ERASERAM;
+                    statuslabel.Content = "Erasing RAM...";
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please read the Header first.");
+            }
+        }
     }
     }

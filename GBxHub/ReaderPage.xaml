@@ -35,6 +35,7 @@
         <Button x:Name="disconnectButton" Content="Disconnect" HorizontalAlignment="Left" Margin="399,16,0,0" VerticalAlignment="Top" Width="76" Click="disconnectButton_Click" Visibility="Hidden"/>
         <Label x:Name="statuslabel" Content="Label" HorizontalAlignment="Left" Margin="206,42,0,0" VerticalAlignment="Top" Foreground="White"/>
         <ProgressBar x:Name="progressBar1" HorizontalAlignment="Left" Height="20" Margin="10,199,0,0" VerticalAlignment="Top" Width="325"/>
+        <Button x:Name="writeRamButton_Wipe" Content="Wipe Save" HorizontalAlignment="Left" Margin="438,199,0,0" VerticalAlignment="Top" Width="97" RenderTransformOrigin="0.907,0.684" Height="28" Click="writeRamButton_Wipe_Click"/>
 
     </Grid>
 </Page>

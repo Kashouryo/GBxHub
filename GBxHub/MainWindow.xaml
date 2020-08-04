@@ -23,7 +23,7 @@
         <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden" Content="" HorizontalAlignment="Left" Height="267" Margin="15,47,0,0" VerticalAlignment="Top" Width="571" Focusable="False" IsTabStop="False"/>
         <Rectangle x:Name="logoImage"  HorizontalAlignment="Left" Height="39" Margin="10,10,0,0" VerticalAlignment="Top" Width="39"/>
         <Rectangle x:Name="gbxImageLogo" HorizontalAlignment="Left" Height="21" Margin="54,24,0,0" VerticalAlignment="Top" Width="95"/>
-        <Label Content="2020 LovelyA72  This is not an insideGadgets official software" HorizontalAlignment="Left" Margin="10,319,0,0" VerticalAlignment="Top" Foreground="#FFE0E0E0"/>
+        <Label Content="2020 LovelyA72  This is not an insideGadgets official software" HorizontalAlignment="Left" Margin="10,313,0,0" VerticalAlignment="Top" Foreground="#FFE0E0E0"/>
         <TextBlock HorizontalAlignment="Left" Margin="54,10,0,0" TextWrapping="Wrap" Text="insideGadgets" VerticalAlignment="Top" Foreground="White" FontSize="11"/>
 
 
